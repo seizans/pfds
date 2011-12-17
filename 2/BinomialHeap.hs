@@ -3,7 +3,9 @@ module BinomialHeap (BinomialHeap) where
 import Heap
 
 data Tree a = NODE a [Tree a]
+  deriving Show
 newtype BinomialHeap a = BH [(Int, Tree a)]
+  deriving Show
 
 rank :: (Int, Tree a) -> Int
 rank (r, _) = r
@@ -56,5 +58,36 @@ instance Heap BinomialHeap where
     where ((_, NODE x ts1), ts2) = removeMinTree ts
 
 
---h1 = insert 5 BH []
+h1 = insert 5 (BH [])
+h2 = insert 6 h1
+h3 = insert 9 h2
+h4 = insert 8 h3
+h5 = insert 1 h4
+h6 = insert 2 h5
+h7 = insert 13 h6
+h8 = insert 20 h7
+h9 = insert 3 h8
+h10 = insert 7 h9
+h11 = insert 0 h10
+
+h12 = findMin h11
+h13 = deleteMin h11
+h14 = findMin h13
+h15 = deleteMin h13
+h16 = findMin h15
+h17 = deleteMin h15
+h18 = findMin h17
+h19 = deleteMin h17
+h20 = findMin h19
+h21 = deleteMin h19
+h22 = findMin h21
+h23 = deleteMin h21
+
+h24 = merge h9 h21
+h25 = findMin h24
+h26 = deleteMin h24
+h27 = findMin h26
+h28 = deleteMin h26
+h29 = findMin h28
+h30 = deleteMin h28
 

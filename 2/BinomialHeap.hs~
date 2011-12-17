@@ -1,7 +1,0 @@
-module BinomialHeap (BinomialHeap) where
-
-import Heap
-
-data Tree a = Node a [Tree a]
-newtype BinomialHeap a = BH [(Int, Tree a)]
-
