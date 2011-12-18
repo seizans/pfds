@@ -1,7 +1,14 @@
+
+
 import Heap
 
 data Tree a = NODE Int a [Tree a]
+  deriving Show
+
+
+
 newtype BinomialHeap a = BH [Tree a]
+  deriving Show
 
 rank :: Tree a -> Int
 rank (NODE r x c) = r
