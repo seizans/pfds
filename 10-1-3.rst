@@ -1,0 +1,47 @@
+#######################################
+PFDS Section 10.1.3 Bootstrapped Queues
+#######################################
+
+:日時: 2012-11-03
+:作者: @seizans
+
+Motivation
+==========
+
+Section 6.3.2 (P.65) の Banker's Queue を改良したい。
+
+- Front, Rear の2リストを持つ内部構造
+- 不変条件: lenf > lenr (lenf は Length of Front)
+- 不変条件が崩れるときに front ++ reverse rear をして維持する
+- これは要素を追加し続けると ((f ++ reverse r1) ++ reverse r2) ++ ...
+- この非効率を改善したい
+
+解決方法: ++ での連結をせず、f が空になったときに f を reverse r1 にする
+
+
+Bootstrapped Queue
+==================
+
+- Front, Middle, Rear の3リストを持つ内部構造 (本当はMはリストではないが一旦保留)
+- 不変条件Q: lenfm > lenr (lenfm は Length of Front & Middle)
+- 不変条件F: if Queue is not enpty, Front is not empty.
+- 提供する関数(Queue):
+    - empty, isEmpty: コメント不要
+    - head: 不変条件F があるので Front の先頭を取り出すだけ
+    - snoc, tail: 要素の追加or削除 -> 不変条件Qの維持(checkQ) -> 不変条件Fの維持(checkF)
+
+snoc, tail の実際の動き
+-----------------------
+
+by whiteboard
+
+BQ a = E | Q Int [a] (BQ [a]) Int [a]
+
+BQ [a] = E | Q Int [[a]] (BQ [[a]]) Int [[a]]
+
+BQ [[a]] = E | Q Int [[[a]]] (BQ [[[a]]]) Int [[[a]]]
+
+計算時間
+--------
+
+
