@@ -1,0 +1,26 @@
+###################################
+PFDS Section 11.1 Queues and Deques
+###################################
+
+:日時: 2012-12-01
+:作者: @seizans
+
+Implicit Queue
+==============
+
+- Bootstrapped Queue と Numerical Representation の合わせ技
+    - front, middle(Queue), rear を持つ構造
+    - front は One or Two、rear は Zero or One
+- 実装がよりシンプルに
+- snoc and tail run in O(1) amortized time
+    - Bootstrapped Queue のときは they run in O(log*n)
+
+snoc, tail の実際の動き
+-----------------------
+
+text を見ながら解説
+
+supported functions と allowable digits の関係
+----------------------------------------------
+
+text を見ながら解説
